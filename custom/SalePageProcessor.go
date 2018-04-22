@@ -63,8 +63,7 @@ func (this *SalePageProcessor) Process(p *page.Page) {
 		p.SetSkip(true)
 	}
 	// the entity we want to save by Pipeline
-	p.AddField("props", strings.Join(props, ","))
-	fmt.Println(props)
+	p.AddField("props", props)
 }
 
 func (this *SalePageProcessor) Finish() {
