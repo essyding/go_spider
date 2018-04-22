@@ -1,0 +1,5 @@
+{"Cache-Control": "no-cache",
+"Cookie": "ctid=11; twe=2; aQQ_ajkguid=4EC53292-38B2-8D4D-8326-8DD2337F0EB2; sessid=6AB65BCB-19E3-B0A5-3AB5-B652C5DA4FF0; _ga=GA1.2.382761592.1524293148; 58tj_uuid=48b6daa6-2395-4c32-8691-4aaafd427d87; als=0; ajk_member_captcha=d488f79b31462e662653863fa049cc4e; lps=http%3A%2F%2Fshanghai.anjuke.com%2Fsale%2F%7C; _gid=GA1.2.749416161.1524431855; init_refer=; new_uv=2; browse_comm_ids=818525%7C370233; new_session=0; propertys=jt6j1h-p7lvlh_jnv0g0-p7iw65_jntv09-p7iw4o_; __xsptplus8=8.2.1524431860.1524434292.18%234%7C%7C%7C%7C%7C%23%23a47sITq4hPbzQtZf9Ockr9NrdQga157E%23; isp=true; Hm_lvt_c5899c8768ebee272710c9c5f365a6d8=1524435710; Hm_lpvt_c5899c8768ebee272710c9c5f365a6d8=1524435710",
+"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
+"Referer": "https://shanghai.anjuke.com/sale/"}
+

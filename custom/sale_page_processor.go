@@ -42,6 +42,7 @@ func ResolveCaptcha(p *page.Page) bool {
 	query := p.GetHtmlParser()
 	if sel := query.Has("div#verify_page"); sel != nil {
 		println("getting captcha...")
+		fmt.Printf("req: %v", p.GetHeader())
 		return true
 	}
 	return false
@@ -51,10 +52,7 @@ func ResolveCaptcha(p *page.Page) bool {
 // Package goquery (http://godoc.org/github.com/PuerkitoBio/goquery) is used to parse html.
 func (this *SalePageProcessor) Process(p *page.Page) {
 	// resolve captcha
-	if ResolveCaptcha(p) {
-		p.SetSkip(true)
-		return
-	}
+	ResolveCaptcha(p)
 	query := p.GetHtmlParser()
 	var urls []string
 	query.Find("a").Each(func(i int, s *goquery.Selection) {
@@ -75,7 +73,6 @@ func (this *SalePageProcessor) Process(p *page.Page) {
 	})
 	if len(props) == 0 {
 		println("Seems getting capchaed------------------------\n")
-		println(p.GetBodyStr())
 		p.SetSkip(true)
 	}
 	// the entity we want to save by Pipeline

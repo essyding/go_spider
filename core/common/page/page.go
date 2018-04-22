@@ -123,7 +123,8 @@ func (this *Page) GetUrlTag() string {
 
 // AddTargetRequest adds one new Request waitting for crawl.
 func (this *Page) AddTargetRequest(url string, respType string) *Page {
-	this.targetRequests = append(this.targetRequests, request.NewRequest(url, respType, "", "GET", "", nil, nil, nil, nil))
+	//this.targetRequests = append(this.targetRequests, request.NewRequest(url, respType, "", "GET", "", nil, nil, nil, nil))
+	this.targetRequests = append(this.targetRequests, request.NewRequestWithHeaderFile(url, respType, "headers.txt"))
 	return this
 }
 

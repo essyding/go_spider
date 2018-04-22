@@ -1,7 +1,6 @@
 package custom
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/essyding/go_spider/core/common/com_interfaces"
@@ -33,12 +32,13 @@ func (this *SalePagePipelineFile) Process(items *page_items.PageItems, t com_int
 			counter := 0
 			for _, vs := range v {
 				if !this.listed[vs] {
-					this.pFile.WriteString(vs)
+					this.pFile.WriteString(vs + "\n")
 					this.listed[vs] = true
 					counter += 1
 				}
 			}
-			fmt.Printf("Crawed %v properties, %v are newly added to db\n", len(v), counter)
+			println("Crawed %v properties, %v are newly added to db\n", len(v), counter)
+			this.pFile.Sync()
 		default:
 		}
 	}
