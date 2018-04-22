@@ -1,4 +1,4 @@
-// Package page_items contains parsed result by PageProcesser.
+// Package page_items contains parsed result by PageProcessor.
 // The result is processed by Pipeline.
 package page_items
 
@@ -6,7 +6,7 @@ import (
     "github.com/essyding/go_spider/core/common/request"
 )
 
-// PageItems represents an entity save result parsed by PageProcesser and will be output at last.
+// PageItems represents an entity save result parsed by PageProcessor and will be output at last.
 type PageItems struct {
 
     // The req is Request object that contains the parsed result, which saved in PageItems.

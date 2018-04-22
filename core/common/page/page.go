@@ -1,5 +1,5 @@
 // Package page contains result catched by Downloader.
-// And it alse has result parsed by PageProcesser.
+// And it alse has result parsed by PageProcessor.
 package page
 
 import (
@@ -34,7 +34,7 @@ type Page struct {
     // The jsonMap is the json result.
     jsonMap *simplejson.Json
 
-    // The pItems is object for save Key-Values in PageProcesser.
+    // The pItems is object for save Key-Values in PageProcessor.
     // And pItems is output in Pipline.
     pItems *page_items.PageItems
 
@@ -88,7 +88,7 @@ func (this *Page) AddField(key string, value string) {
     this.pItems.AddItem(key, value)
 }
 
-// GetPageItems returns PageItems object that record KV pair parsed in PageProcesser.
+// GetPageItems returns PageItems object that record KV pair parsed in PageProcessor.
 func (this *Page) GetPageItems() *page_items.PageItems {
     return this.pItems
 }
@@ -157,7 +157,7 @@ func (this *Page) AddTargetRequestWithHeaderFile(url string, respType string, he
 
 // AddTargetRequest adds one new Request waitting for crawl.
 // The respType is "html" or "json" or "jsonp" or "text".
-// The urltag is name for marking url and distinguish different urls in PageProcesser and Pipeline.
+// The urltag is name for marking url and distinguish different urls in PageProcessor and Pipeline.
 // The method is POST or GET.
 // The postdata is http body string.
 // The header is http header.

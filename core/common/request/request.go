@@ -23,7 +23,7 @@ type Request struct {
     // POST data
     Postdata string
 
-    // name for marking url and distinguish different urls in PageProcesser and Pipeline
+    // name for marking url and distinguish different urls in PageProcessor and Pipeline
     Urltag string
 
     // http header

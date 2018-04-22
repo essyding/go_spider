@@ -3,13 +3,13 @@
 // license that can be found in the LICENSE file.
 
 //
-package page_processer
+package page_processor
 
 import (
-    "github.com/essyding/go_spider/core/common/page"
+	"github.com/essyding/go_spider/core/common/page"
 )
 
-type PageProcesser interface {
-    Process(p *page.Page)
-    Finish()
+type PageProcessor interface {
+	Process(p *page.Page)
+	Finish()
 }
