@@ -2,7 +2,6 @@
 package main
 
 import (
-	"github.com/essyding/go_spider/core/pipeline"
 	"github.com/essyding/go_spider/core/scheduler"
 	"github.com/essyding/go_spider/core/spider"
 	"github.com/essyding/go_spider/custom"
@@ -13,7 +12,7 @@ func main() {
 		SetSleepTime("rand", 1000, 6000).
 		SetScheduler(scheduler.NewQueueScheduler(true)).           // remove duplicate url.
 		AddUrl("https://shanghai.anjuke.com/sale/pudong", "html"). // start url, html is the responce type ("html" or "json")
-		AddPipeline(pipeline.NewPipelineConsole()).                // print result on screen
+		AddPipeline(custom.NewSalePagePipelineFile("props.txt")).  // print result on screen
 		SetThreadnum(3).                                           // crawl request by three Coroutines
 		Run()
 }
