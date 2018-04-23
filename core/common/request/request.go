@@ -2,6 +2,7 @@
 package request
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -63,14 +64,18 @@ func NewRequestWithProxy(url string, respType string, urltag string, method stri
 	postdata string, header http.Header, cookies []*http.Cookie, proxyHost string,
 	checkRedirect func(req *http.Request, via []*http.Request) error,
 	meta interface{}) *Request {
+	fmt.Printf("Using proxy: %s", proxyHost)
 	return &Request{url, respType, method, postdata, urltag, header, cookies, proxyHost, checkRedirect, meta}
 }
+
+var TempProxyHost = "http://35.196.89.215:80"
 
 func NewRequestWithHeaderFile(url string, respType string, headerFile string) *Request {
 	_, err := os.Stat(headerFile)
 	if err != nil {
 		//file is not exist , using default mode
 		println("file does not exist")
+		//return NewRequestWithProxy(url, respType, "", "GET", "", nil, nil, TempProxyHost, nil, nil)
 		return NewRequest(url, respType, "", "GET", "", nil, nil, nil, nil)
 	}
 

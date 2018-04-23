@@ -1,15 +1,20 @@
 package pipeline
 
 import (
+	"sync"
+
 	"github.com/essyding/go_spider/core/common/com_interfaces"
 	"github.com/essyding/go_spider/core/common/page_items"
 )
 
 type PipelineConsole struct {
+	m sync.Map
 }
 
 func NewPipelineConsole() *PipelineConsole {
-	return &PipelineConsole{}
+	return &PipelineConsole{
+		m: sync.Map{},
+	}
 }
 
 func (this *PipelineConsole) Process(items *page_items.PageItems, t com_interfaces.Task) {
@@ -22,7 +27,10 @@ func (this *PipelineConsole) Process(items *page_items.PageItems, t com_interfac
 			println(key + "\t:\t" + v)
 		case []string:
 			for _, vs := range v {
-				println(key + "\t:\t" + vs)
+				if _, ok := this.m.Load(vs); !ok {
+					println(key + "\t:\t" + vs)
+					this.m.Store(vs, true)
+				}
 			}
 		default:
 			println(key + "\t:\tunsupported type.")

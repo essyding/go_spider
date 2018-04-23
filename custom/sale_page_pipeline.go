@@ -1,6 +1,7 @@
 package custom
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/essyding/go_spider/core/common/com_interfaces"
@@ -29,17 +30,23 @@ func (this *SalePagePipelineFile) Process(items *page_items.PageItems, t com_int
 	for _, value := range items.GetAll() {
 		switch v := value.(type) {
 		case []string:
+			println("HHH????Len = ", len(v))
 			counter := 0
-			for _, vs := range v {
-				if !this.listed[vs] {
-					this.pFile.WriteString(vs + "\n")
-					this.listed[vs] = true
+			for i := 1; i < len(v); i++ {
+				println(v[i])
+				if !this.listed[v[i]] {
+					// this.pFile.WriteString(v[i] + "\n")
+					this.listed[v[i]] = true
 					counter += 1
+					println("written")
 				}
 			}
 			println("Crawed %v properties, %v are newly added to db\n", len(v), counter)
-			this.pFile.Sync()
+			if err := this.pFile.Sync(); err != nil {
+				println("flush error.\n")
+			}
 		default:
+			fmt.Printf("WTF?")
 		}
 	}
 }
